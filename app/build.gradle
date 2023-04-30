@@ -165,6 +165,7 @@ apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
