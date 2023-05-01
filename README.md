@@ -1,3 +1,11 @@
+### Automated tests with espresso & kotlin for wikipedia android app
+
+All tests are stored in app/src/androidTest/java/org/wikipedia/e2e/tests/SimpleTests.kt
+All pages are stored in app/src/androidTest/java/org/wikipedia/e2e/pages
+
+adb shell am instrument -w org.wikipedia.e2e.tests/androidx.test.runner.AndroidJUnitRunner
+
+
 ### Wikipedia Android app
 
 This repository contains the source code for the official [Wikipedia Android app](https://play.google.com/store/apps/details?id=org.wikipedia).

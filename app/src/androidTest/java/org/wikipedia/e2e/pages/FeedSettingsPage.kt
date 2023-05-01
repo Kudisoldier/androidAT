@@ -1,8 +1,9 @@
 package org.wikipedia.e2e.pages
 
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.isChecked
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -20,13 +21,18 @@ class FeedSettingsPage : Page() {
     override fun verify(): FeedSettingsPage {
         device.wait(Until.findObject(By.res("content_types_recycler")), 2000)
         device.wait(Until.findObject(By.res("feed_content_type_checkbox")), 2000)
+
         return this
     }
 
     fun assertThatAllCheckboxesChecked(): FeedSettingsPage {
-        onView(allOf(withParent(_contentTypesRecycler), withParentIndex(3)))
-            .perform(swipeUp())
-        for (i in 0..7) {
+        for (i in 0..6) {
+            onView(allOf(_feedContentTypeCheckbox, isDescendantOfA(allOf(withParent(_contentTypesRecycler), withParentIndex(i)))))
+                .check(matches(isChecked()))
+        }
+        onView(allOf(_contentTypesRecycler))
+            .perform(RecyclerViewActions.scrollToLastPosition<RecyclerView.ViewHolder>())
+        for (i in 0..6) {
             onView(allOf(_feedContentTypeCheckbox, isDescendantOfA(allOf(withParent(_contentTypesRecycler), withParentIndex(i)))))
                 .check(matches(isChecked()))
         }

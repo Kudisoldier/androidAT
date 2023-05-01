@@ -20,10 +20,8 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 
-
 class SettingsPage : Page() {
     private val _recyclerView = withId(R.id.recycler_view)
-    //private val _linearLayoutFeedSettings = allOf(withParent(_recyclerView), withParentIndex(2))
 
     override fun verify(): SettingsPage {
         device.wait(Until.findObject(By.res("recycler_view")), 2000)
@@ -32,15 +30,15 @@ class SettingsPage : Page() {
 
     fun clickExploreFeed(): SettingsPage {
         onView(_recyclerView)
-            .perform(RecyclerViewActions.
-            actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+            .perform(RecyclerViewActions
+                .actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
         return this
     }
 
     fun clickAbout(): SettingsPage {
         onView(_recyclerView)
-            .perform(RecyclerViewActions.
-            actionOnItemAtPosition<RecyclerView.ViewHolder>(16, click()))
+            .perform(RecyclerViewActions
+                .actionOnItemAtPosition<RecyclerView.ViewHolder>(16, click()))
 
         return this
     }

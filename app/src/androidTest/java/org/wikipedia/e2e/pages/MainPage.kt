@@ -12,7 +12,6 @@ class MainPage : Page() {
     private val _settingButton = withId(R.id.main_drawer_settings_container)
     private val _loginButton = withId(R.id.main_drawer_login_button)
 
-
     override fun verify(): MainPage {
         device.wait(Until.findObject(By.res("nav_more_container")), 2000)
         return this
