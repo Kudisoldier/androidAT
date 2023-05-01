@@ -7,10 +7,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.e2e.pages.AboutPage
-import org.wikipedia.e2e.pages.FeedSettingsPage
 import org.wikipedia.e2e.pages.OnboardingPage
-import org.wikipedia.e2e.pages.SettingsPage
+import org.wikipedia.e2e.pages.RegisterPage
 import org.wikipedia.main.MainActivity
 
 @RunWith(AndroidJUnit4::class)
@@ -42,6 +40,34 @@ class SimpleTests {
 //            .clickAbout()
 //            .on<AboutPage>()
 //            .assertThatContribTranslatorsAndLicenseDisplayed()
+//    }
+
+//    @Test
+//    fun testBrowserOpened() {
+//        Page.on<OnboardingPage>()
+//            .clickSkip()
+//            .on<MainPage>()
+//            .clickMore()
+//            .clickSettings()
+//            .on<SettingsPage>()
+//            .clickPrivacyPolicyAndCheckBrowserIsOpened()
+//    }
+
+//    @Test
+//    fun testPasswordHidden() {
+//        val password = "passwd"
+//
+//        Page.on<OnboardingPage>()
+//            .clickSkip()
+//            .on<MainPage>()
+//            .clickMore()
+//            .clickLogin()
+//            .on<RegisterPage>()
+//            .fillPassword(password)
+//            .clickEyeIcon()
+//            .assertThatPasswordVisible(true)
+//            .clickEyeIcon()
+//            .assertThatPasswordVisible(false)
 //    }
 
 

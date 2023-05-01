@@ -10,6 +10,8 @@ import org.wikipedia.R
 class MainPage : Page() {
     private val _moreButton = withId(R.id.nav_more_container)
     private val _settingButton = withId(R.id.main_drawer_settings_container)
+    private val _loginButton = withId(R.id.main_drawer_login_button)
+
 
     override fun verify(): MainPage {
         device.wait(Until.findObject(By.res("nav_more_container")), 2000)
@@ -23,6 +25,11 @@ class MainPage : Page() {
 
     fun clickSettings(): MainPage {
         onView(_settingButton).perform(click())
+        return this
+    }
+
+    fun clickLogin(): MainPage {
+        onView(_loginButton).perform(click())
         return this
     }
 }
